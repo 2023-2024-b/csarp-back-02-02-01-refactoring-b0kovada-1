@@ -47,7 +47,8 @@ namespace Kreta.Shared.Models.Datas.Entities
         public int SchoolYear { get; set; }
         public SchoolClassType SchoolClass { get; set; }
         public string EducationLevel { get; set; }
-        public bool IsWoomen { get; set; }
+        public bool IsWoman { get; set; }
+        public bool IsMan => !IsWoman;
 
         public override string ToString()
         {
