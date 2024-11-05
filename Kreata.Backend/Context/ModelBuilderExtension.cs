@@ -1,5 +1,5 @@
-﻿using Kreata.Backend.Datas.Entities;
-using Kreata.Backend.Datas.Enums;
+﻿using Kreta.Shared.Models.Datas.Entities;
+using Kreta.Shared.Models.Datas.Enums;
 using Microsoft.EntityFrameworkCore;
 
 namespace Kreata.Backend.Context

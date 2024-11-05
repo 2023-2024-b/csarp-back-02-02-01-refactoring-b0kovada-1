@@ -1,5 +1,5 @@
-﻿using Kreata.Backend.Datas.Entities;
-using Kreata.Backend.Datas.Responses;
+﻿using Kreta.Shared.Models.Datas.Entities;
+using Kreta.Shared.Models.Responses;
 using Kreata.Backend.Repos;
 using Microsoft.AspNetCore.Mvc;
 
@@ -23,7 +23,7 @@ namespace Kreata.Backend.Controllers
             if (_studentRepo is not null)
             {
                 entity = await _studentRepo.GetBy(id);
-                if (entity!=null) 
+                if (entity != null)
                     return Ok(entity);
             }
             return BadRequest("Az adatok elérhetetlenek!");

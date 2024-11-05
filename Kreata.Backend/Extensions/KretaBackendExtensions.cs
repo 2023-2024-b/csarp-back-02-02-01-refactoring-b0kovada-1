@@ -41,8 +41,8 @@ namespace Kreata.Backend.Extensions
             );
         }
 
-        public static void ConfigureRepos(this IServiceCollection services) 
-        { 
+        public static void ConfigureRepos(this IServiceCollection services)
+        {
             services.AddScoped<IStudentRepo, StudentRepo>();
         }
     }

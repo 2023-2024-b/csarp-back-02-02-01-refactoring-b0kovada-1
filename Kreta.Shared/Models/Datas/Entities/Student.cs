@@ -1,6 +1,6 @@
-﻿using Kreata.Backend.Datas.Enums;
+﻿using Kreta.Shared.Models.Datas.Enums;
 
-namespace Kreata.Backend.Datas.Entities
+namespace Kreta.Shared.Models.Datas.Entities
 {
     public class Student
     {
