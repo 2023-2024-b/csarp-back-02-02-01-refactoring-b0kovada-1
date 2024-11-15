@@ -5,6 +5,8 @@ namespace Kreata.Backend.Context
 {
     public class KretaContext : DbContext
     {
+        public DbSet<Parent> Parents { get; set; }
+        public DbSet<Uthiba> Uthibak { get; set; }
         public DbSet<Student> Students { get; set; }
 
         public KretaContext(DbContextOptions<KretaContext> options)

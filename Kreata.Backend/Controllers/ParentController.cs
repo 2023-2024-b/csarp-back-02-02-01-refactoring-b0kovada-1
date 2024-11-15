@@ -8,22 +8,22 @@ namespace Kreata.Backend.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class StudentController : ControllerBase
+    public class ParentController : ControllerBase
     {
-        private IStudentRepo _studentRepo;
+        private IParentRepo _parentRepo;
 
-        public StudentController(IStudentRepo studentRepo)
+        public ParentController(IParentRepo parentRepo)
         {
-            _studentRepo = studentRepo;
+            _parentRepo = parentRepo;
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetBy(Guid id)
         {
-            Student? entity = new();
-            if (_studentRepo is not null)
+            Parent? entity = new();
+            if (_parentRepo is not null)
             {
-                entity = await _studentRepo.GetBy(id);
+                entity = await _parentRepo.GetBy(id);
                 if (entity != null)
                     return Ok(entity.ToDto());
             }
@@ -33,23 +33,23 @@ namespace Kreata.Backend.Controllers
         [HttpGet]
         public async Task<IActionResult> SelectAllRecordToListAsync()
         {
-            List<Student>? users = new();
+            List<Parent>? users = new();
 
-            if (_studentRepo != null)
+            if (_parentRepo != null)
             {
-                users = await _studentRepo.GetAll();
-                return Ok(users.GetStudentsDtos());
+                users = await _parentRepo.GetAll();
+                return Ok(users.GetParentsDtos());
             }
             return BadRequest("Az adatok elérhetetlenek!");
         }
 
         [HttpPut()]
-        public async Task<ActionResult> UpdateStudentAsync(StudentDto entity)
+        public async Task<ActionResult> UpdateParentAsync(ParentDto entity)
         {
             ControllerResponse response = new();
-            if (_studentRepo is not null)
+            if (_parentRepo is not null)
             {
-                response = await _studentRepo.UpdateStudentAsync(entity.ToModel());
+                response = await _parentRepo.UpdateParentAsync(entity.ToModel());
                 if (response.HasError)
                 {
                     return BadRequest(response);

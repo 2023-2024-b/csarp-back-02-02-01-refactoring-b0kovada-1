@@ -13,7 +13,7 @@ namespace Kreta.Shared.Models.Datas.Entities
             SchoolYear = schoolYear;
             SchoolClass = schoolClass;
             EducationLevel = educationLevel;
-            IsWoomen= isWooman;
+            IsWoman= isWooman;
         }
 
         public Student(string firstName, string lastName, DateTime birthsDay, int schoolYear, SchoolClassType schoolClass, string educationLevel, bool isWooman)
@@ -25,7 +25,7 @@ namespace Kreta.Shared.Models.Datas.Entities
             SchoolYear = schoolYear;
             SchoolClass = schoolClass;
             EducationLevel = educationLevel;
-            IsWoomen = isWooman;
+            IsWoman = isWooman;
         }
 
         public Student()
@@ -37,7 +37,7 @@ namespace Kreta.Shared.Models.Datas.Entities
             SchoolYear = 9;
             SchoolClass = SchoolClassType.ClassA;
             EducationLevel = string.Empty;
-            IsWoomen = false;
+            IsWoman = false;
         }
 
         public Guid Id { get; set; }

@@ -32,8 +32,48 @@ namespace Kreata.Backend.Context
                 }
             };
 
+            List<Parent> parents = new List<Parent>
+            {
+                new Parent
+                {
+                    Id=Guid.NewGuid(),
+                    FirstName="Okos",
+                    LastName="Olívia",
+                    Address="Petőfi Sándor sgrt.10.",
+                    IsWoman=true,
+                },
+                new Parent
+                {
+                    Id=Guid.NewGuid(),
+                    FirstName="Buta",
+                    LastName="Balázs",
+                    Address="Boldogasszony sgrt.20.",
+                    IsWoman=false,
+                }
+            };
+
+            List<Uthiba> uthibak = new List<Uthiba>
+            {
+                new Uthiba
+                {
+                    Id=Guid.NewGuid(),
+                    Leiras = "Kátyú",
+                    Address="Petőfi Sándor sgrt. 10.",
+                    IsDone=true
+                },
+                new Uthiba
+                {
+                    Id=Guid.NewGuid(),
+                    Leiras = "Benőtt tábla",
+                    Address="Mars tér 10.",
+                    IsDone=false
+                }
+            };
+
             // Students
             modelBuilder.Entity<Student>().HasData(students);
+            modelBuilder.Entity<Parent>().HasData(parents);
+            modelBuilder.Entity<Uthiba>().HasData(uthibak);
         }
     }
 }

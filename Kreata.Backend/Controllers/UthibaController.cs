@@ -8,22 +8,22 @@ namespace Kreata.Backend.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class StudentController : ControllerBase
+    public class UthibaController : ControllerBase
     {
-        private IStudentRepo _studentRepo;
+        private IUthibaRepo _uthibaRepo;
 
-        public StudentController(IStudentRepo studentRepo)
+        public UthibaController(IUthibaRepo uthibaRepo)
         {
-            _studentRepo = studentRepo;
+            _uthibaRepo = uthibaRepo;
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetBy(Guid id)
         {
-            Student? entity = new();
-            if (_studentRepo is not null)
+            Uthiba? entity = new();
+            if (_uthibaRepo is not null)
             {
-                entity = await _studentRepo.GetBy(id);
+                entity = await _uthibaRepo.GetBy(id);
                 if (entity != null)
                     return Ok(entity.ToDto());
             }
@@ -33,23 +33,23 @@ namespace Kreata.Backend.Controllers
         [HttpGet]
         public async Task<IActionResult> SelectAllRecordToListAsync()
         {
-            List<Student>? users = new();
+            List<Uthiba>? users = new();
 
-            if (_studentRepo != null)
+            if (_uthibaRepo != null)
             {
-                users = await _studentRepo.GetAll();
-                return Ok(users.GetStudentsDtos());
+                users = await _uthibaRepo.GetAll();
+                return Ok(users.GetUthibasDtos());
             }
             return BadRequest("Az adatok elérhetetlenek!");
         }
 
         [HttpPut()]
-        public async Task<ActionResult> UpdateStudentAsync(StudentDto entity)
+        public async Task<ActionResult> UpdateUthibaAsync(UthibaDto entity)
         {
             ControllerResponse response = new();
-            if (_studentRepo is not null)
+            if (_uthibaRepo is not null)
             {
-                response = await _studentRepo.UpdateStudentAsync(entity.ToModel());
+                response = await _uthibaRepo.UpdateUthibaAsync(entity.ToModel());
                 if (response.HasError)
                 {
                     return BadRequest(response);
